@@ -9,7 +9,7 @@ namespace AsposeTest.Classes
 {
     public class EnqueueService : IEnqueueService
     {
-        private readonly IBackgroundJobClient _backgroundJobs;
+       // private readonly IBackgroundJobClient _backgroundJobs;
 
         private readonly ILogger<EnqueueService> _logger;
 
@@ -17,9 +17,9 @@ namespace AsposeTest.Classes
 
 
 
-        public EnqueueService(IBackgroundJobClient backgroundJobs, ILogger<EnqueueService> logger, IRenderService renderService)
+        public EnqueueService(ILogger<EnqueueService> logger, IRenderService renderService)
         {
-            _backgroundJobs = backgroundJobs;
+        //    _backgroundJobs = backgroundJobs;
             _logger = logger;
             _renderService = renderService;
 
