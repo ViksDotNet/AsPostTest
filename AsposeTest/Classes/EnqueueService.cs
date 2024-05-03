@@ -27,9 +27,10 @@ namespace AsposeTest.Classes
 
         public string EnqueueZavacorReportRequest()
         {
-            var uniqueId = _backgroundJobs.Schedule<IRenderService>(x => x.ProcessZavacorReportRequest(), TimeSpan.FromSeconds(5));
-            _logger.LogInformation($"Request with ZCReportCode  has been queued with Job Id - {uniqueId}");
-            return uniqueId;          
+           // var uniqueId = _backgroundJobs.Schedule<IRenderService>(x => x.ProcessZavacorReportRequest(), TimeSpan.FromSeconds(5));
+           _renderService.ProcessZavacorReportRequest();
+            _logger.LogInformation($"Request with ZCReportCode  has been queued with Job Id - ");
+            return "uniqueId";          
         }
     }
 }

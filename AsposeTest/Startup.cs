@@ -39,23 +39,23 @@ namespace AsposeTest
 
             services.AddHttpClient();
             // Add Hangfire services.
-            services.AddHangfire(configuration => configuration
-                .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
-                .UseSimpleAssemblyNameTypeSerializer()
-                .UseRecommendedSerializerSettings()
-                .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection"), new SqlServerStorageOptions
-                {
-                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
-                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
-                    QueuePollInterval = TimeSpan.Zero,
+            // services.AddHangfire(configuration => configuration
+            //     .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+            //     .UseSimpleAssemblyNameTypeSerializer()
+            //     .UseRecommendedSerializerSettings()
+            //     .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection"), new SqlServerStorageOptions
+            //     {
+            //         CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+            //         SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+            //         QueuePollInterval = TimeSpan.Zero,
 
-                    UseRecommendedIsolationLevel = true,
-                    DisableGlobalLocks = true,
-                    EnableHeavyMigrations = true
-                }));
+            //         UseRecommendedIsolationLevel = true,
+            //         DisableGlobalLocks = true,
+            //         EnableHeavyMigrations = true
+            //     }));
 
             // Add the processing server as IHostedService
-            services.AddHangfireServer();
+            // services.AddHangfireServer();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IEnqueueService, EnqueueService>();
             services.AddTransient<IRenderService, RenderService>();
@@ -81,10 +81,10 @@ namespace AsposeTest
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AsposeTest v1"));
             }
 
-            app.UseHangfireDashboard("/hangfire", new DashboardOptions
-            {
-                Authorization = new[] { new HangfireAuthorizationFilter() }
-            });
+            // app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            // {
+            //     Authorization = new[] { new HangfireAuthorizationFilter() }
+            // });
 
            
 
@@ -95,7 +95,7 @@ namespace AsposeTest
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHangfireDashboard();
+                // endpoints.MapHangfireDashboard();
             });
 
             app.UseStatusCodePages();
