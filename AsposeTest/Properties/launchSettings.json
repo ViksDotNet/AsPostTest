@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:59998",
+      "applicationUrl": "http://localhost:8080",
       "sslPort": 0
     }
   },
@@ -20,7 +20,7 @@
     "AsposeTest": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:52031",
+      "applicationUrl": "http://localhost:8080",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
