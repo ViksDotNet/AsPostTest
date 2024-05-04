@@ -35,7 +35,7 @@ namespace AsposeTest.Classes
              //var htmlResponse = await _dataTranslatorFileStorage.SavePDFFile("Test");
 
 
-            byte[] bytes = new byte[100000000];
+            byte[] bytes = new byte[500000000];
             Random rand = new Random();
             rand.NextBytes(bytes);
 
